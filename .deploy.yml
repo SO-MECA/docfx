@@ -4,6 +4,7 @@ queue:
   name: DocFX
 steps:
 - powershell: ./impact.ps1
+  arguments: '-GitHubPAT $(GitHubPAT)'
   displayName: 'Impact Test'
 
 - powershell: ./build.ps1
