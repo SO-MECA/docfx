@@ -1,0 +1,18 @@
+resources:
+- repo: self
+queue:
+  name: DocFX
+steps:
+- displayName: Impact Test
+  powershell: ./ ./impact.ps1
+
+- displayName: Build
+  powershell: ./ ./build.ps1 
+
+- displayName: Push to MyGet
+  task: NuGetCommand@2
+  inputs:
+    command: push
+    packagesToPush: 'drop/**/*.nupkg'
+    nuGetFeedType: external
+    publishFeedCredentials: 'myget.docfx-v3'
