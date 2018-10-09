@@ -17,7 +17,7 @@ pushd ../docfx-impact
 $DevOpsPATBase64 = [System.Convert]::ToBase64String([System.Text.Encoding]::ASCII.GetBytes(":$($env:DevOpsPAT)"))
 $DevOpsConfig = "-c http.https://ceapex.visualstudio.com.extraheader=""AUTHORIZATION: basic $DevOpsPATBase64"""
 
-$GitHubPATBase64 = [System.Convert]::ToBase64String([System.Text.Encoding]::ASCII.GetBytes(":$($env:GitHubPAT)"))
+$GitHubPATBase64 = [System.Convert]::ToBase64String([System.Text.Encoding]::ASCII.GetBytes("$($env:GitHubPAT)"))
 $GitHubConfig = "-c http.https://github.com.extraheader=""AUTHORIZATION: basic $GitHubPATBase64"""
 
 exec "git init"
