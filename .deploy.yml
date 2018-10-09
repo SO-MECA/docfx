@@ -3,14 +3,14 @@ resources:
 queue:
   name: DocFX
 steps:
-- displayName: 'Impact Test'
-  powershell: ./ ./impact.ps1
+- powershell: ./ ./impact.ps1
+  displayName: 'Impact Test'
 
-- displayName: Build
-  powershell: ./ ./build.ps1 
+- powershell: ./ ./build.ps1
+  displayName: Build
 
-- displayName: 'Push to MyGet'
-  task: NuGetCommand@2
+- task: NuGetCommand@2
+  displayName: 'Push to MyGet'
   inputs:
     command: push
     packagesToPush: 'drop/**/*.nupkg'
