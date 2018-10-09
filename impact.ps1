@@ -23,7 +23,7 @@ $GitHubConfig = "-c http.https://github.com.extraheader=""AUTHORIZATION: basic $
 exec "git init"
 git remote add origin https://ceapex.visualstudio.com/Engineering/_git/Docs.DocFX.Impact
 exec "git $GitHubConfig $DevOpsConfig fetch --progress"
-exec "git reset --hard origin/master --progress"
+exec "git checkout origin/master --force --progress"
 exec "git $GitHubConfig $DevOpsConfig submodule update --init"
 
 exec "npm install"
