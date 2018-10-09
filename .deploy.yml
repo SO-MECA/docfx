@@ -3,11 +3,11 @@ resources:
 queue:
   name: DocFX
 steps:
-- powershell: ./impact.ps1
+- powershell@2: ./impact.ps1
   arguments: '-GitHubPAT $(GitHubPAT)'
   displayName: 'Impact Test'
 
-- powershell: ./build.ps1
+- powershell@2: ./build.ps1
   displayName: Build
 
 - task: NuGetCommand@2
