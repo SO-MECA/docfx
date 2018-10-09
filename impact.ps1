@@ -14,8 +14,7 @@ $env:DOCFX_APPDATA_PATH = "../appdata"
 
 pushd ../docfx-impact
 
-$DevOpsPATBase64 = [System.Convert]::ToBase64String([System.Text.Encoding]::Unicode.GetBytes(":$($env:DevOpsPAT)"))
-$DevOpsConfig = "-c http.https.ceapex.visualstudio.com.extraheader=""AUTHORIZATION: basic $DevOpsPATBase64"""
+$DevOpsConfig = "-c http.https.ceapex.visualstudio.com.extraheader=""AUTHORIZATION: bearer $DevOpsPAT"""
 
 $GitHubPATBase64 = [System.Convert]::ToBase64String([System.Text.Encoding]::Unicode.GetBytes(":$($env:GitHubPAT)"))
 $GitHubConfig = "-c http.https.github.com.extraheader=""AUTHORIZATION: basic $GitHubPATBase64"""
