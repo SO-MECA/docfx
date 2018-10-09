@@ -12,7 +12,8 @@ function exec([string] $cmd) {
 
 $env:DOCFX_APPDATA_PATH = "../appdata"
 
-mkdir ../docfx-impact
+[System.IO.Directory]::CreateDirectory('../docfx-impact')
+
 pushd ../docfx-impact
 
 $DevOpsPATBase64 = [System.Convert]::ToBase64String([System.Text.Encoding]::UNICODE.GetBytes(":$($System.AccessToken)"))
