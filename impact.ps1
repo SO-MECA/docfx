@@ -10,6 +10,8 @@ function exec([string] $cmd) {
     }
 }
 
+# Disable prompt for credentials on build server
+$env:GIT_TERMINAL_PROMPT = 0
 $env:DOCFX_APPDATA_PATH = "../appdata"
 
 [System.IO.Directory]::CreateDirectory('../docfx-impact')
