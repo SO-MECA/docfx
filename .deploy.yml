@@ -6,6 +6,7 @@ steps:
 - powershell: ./impact.ps1
   env:
     GitHubPAT: $(GitHubPAT)
+    System.AccessToken: $(System.AccessToken)
   displayName: 'Impact Test'
 
 - powershell: ./build.ps1
