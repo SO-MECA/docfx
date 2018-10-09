@@ -3,10 +3,10 @@ resources:
 queue:
   name: DocFX
 steps:
-- powershell: ./ ./impact.ps1
+- powershell: ./impact.ps1
   displayName: 'Impact Test'
 
-- powershell: ./ ./build.ps1
+- powershell: ./build.ps1
   displayName: Build
 
 - task: NuGetCommand@2
