@@ -8,11 +8,14 @@ function exec([string] $cmd) {
 
 # Disable prompt for credentials on build server
 $env:GIT_TERMINAL_PROMPT = 0
-$env:DOCFX_APPDATA_PATH = "../appdata"
+$env:DOCFX_APPDATA_PATH = "D:/appdata"
+$env:DOCFX_PATH = [System.IO.Directory]::GetCurrentDirectory()
 
-[System.IO.Directory]::CreateDirectory('../docfx-impact')
+Write-Host "Use docfx at: $env:DOCFX_PATH"
 
-pushd ../docfx-impact
+[System.IO.Directory]::CreateDirectory('D:/docfx-impact')
+
+pushd D:/docfx-impact
 
 $DevOpsPATBase64 = [System.Convert]::ToBase64String([System.Text.Encoding]::ASCII.GetBytes(":$($env:DEVOPS_PAT)"))
 $DevOpsConfig = "-c http.https://ceapex.visualstudio.com.extraheader=""AUTHORIZATION: basic $DevOpsPATBase64"""
